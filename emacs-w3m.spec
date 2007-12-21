@@ -11,6 +11,7 @@ Source0: %{name}-%{version}.tar.bz2
 Source1: %{name}-autostart.el
 License: GPL
 Group: Networking/WWW
+BuildRoot: %_tmppath/%{name}-buildroot
 Requires: emacs >= %{e21_version}
 Requires: w3m
 BuildRequires: emacs-bin >= %{e21_version}
