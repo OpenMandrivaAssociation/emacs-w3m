@@ -17,6 +17,8 @@ Requires:	w3m
 BuildRequires:	emacs-bin >= %{e21_version}
 URL:		http://emacs-w3m.namazu.org/
 Conflicts:	xemacs
+Obsoletes:	emacs-w3
+Provides:	emacs-w3
 BuildArch:	noarch
 
 %description
