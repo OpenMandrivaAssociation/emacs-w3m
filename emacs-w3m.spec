@@ -1,23 +1,23 @@
 %define rname w3m
 %define version 1.4.4
-%define release %mkrel 2
+%define release %mkrel 3
 %define e21_version 21.4
 
-Summary: An Emacs interface to w3m, a web browser and pager
-Name: emacs-%{rname}
-Version: %{version}
-Release: %{release}
-Source0: %{name}-%{version}.tar.bz2
-Source1: %{name}-autostart.el
-License: GPL
-Group: Networking/WWW
-BuildRoot: %_tmppath/%{name}-buildroot
-Requires: emacs >= %{e21_version}
-Requires: w3m
-BuildRequires: emacs-bin >= %{e21_version}
-Url: http://emacs-w3m.namazu.org/
-Conflicts: xemacs
-BuildArch: noarch
+Summary:	An Emacs interface to w3m, a web browser and pager
+Name:		emacs-%{rname}
+Version:	%{version}
+Release:	%{release}
+Source0:	%{name}-%{version}.tar.bz2
+Source1:	%{name}-autostart.el
+License:	GPLv2+
+Group:		Networking/WWW
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+Requires:	emacs >= %{e21_version}
+Requires:	w3m
+BuildRequires:	emacs-bin >= %{e21_version}
+URL:		http://emacs-w3m.namazu.org/
+Conflicts:	xemacs
+BuildArch:	noarch
 
 %description
 Emacs-w3m is a simple Emacs interface to w3m, which is a pager with
@@ -27,8 +27,8 @@ Although it is a pager, it can be used as a text-mode WWW browser.
 %package el
 Summary: Web Browser sources for GNU Emacs
 Group: Editors
-Requires: %name = %version
-Url: http://www.cs.indiana.edu/elisp/w3/
+Requires: %{name} = %{version}
+URL: http://www.cs.indiana.edu/elisp/w3/
 
 %description el
 Emacs-w3m is a simple Emacs interface to w3m, which is a pager with
@@ -46,19 +46,19 @@ This is the elisp source.
 make
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/emacs/site-start.d/
-install -m644 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/emacs/site-start.d/%{rname}.el
+rm -rf %{buildroot}
+mkdir -p %{buildroot}%{_sysconfdir}/emacs/site-start.d/
+install -m644 %{SOURCE1} %{buildroot}%{_sysconfdir}/emacs/site-start.d/%{rname}.el
 
 make install \
-     infodir=$RPM_BUILD_ROOT%{_infodir} \
-     lispdir=$RPM_BUILD_ROOT%{_datadir}/emacs/site-lisp/%{rname}
+     infodir=%{buildroot}%{_infodir} \
+     lispdir=%{buildroot}%{_datadir}/emacs/site-lisp/%{rname}
 
 make install-icons \
-     ICONDIR=$RPM_BUILD_ROOT%{_datadir}/emacs/%{e21_version}/etc/images/%{rname}
+     ICONDIR=%{buildroot}%{_datadir}/emacs/%{e21_version}/etc/images/%{rname}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %post
 %_install_info %{rname}.info
