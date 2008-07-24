@@ -1,6 +1,6 @@
 %define rname w3m
 %define version 1.4.4
-%define release %mkrel 4
+%define release %mkrel 6
 %define e21_version 21.4
 
 Summary:	An Emacs interface to w3m, a web browser and pager
