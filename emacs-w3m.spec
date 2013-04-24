@@ -63,8 +63,6 @@ make install-icons \
 rm -rf %{buildroot}
 
 
-%postun
-%_remove_install_info %{rname}
 
 %files
 %defattr(-,root,root)
