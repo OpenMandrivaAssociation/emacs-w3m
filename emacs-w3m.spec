@@ -62,8 +62,6 @@ make install-icons \
 %clean
 rm -rf %{buildroot}
 
-%post
-%_install_info %{rname}.info
 
 %postun
 %_remove_install_info %{rname}
