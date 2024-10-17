@@ -8,7 +8,7 @@ Version:	1.5
 Release:	0.%{git}.1
 License:	GPLv2+
 Group:		Networking/WWW
-Url:		http://emacs-w3m.namazu.org/
+Url:		https://emacs-w3m.namazu.org/
 Source0:	%{name}-%{version}.tar.gz
 Source1:	%{name}-autostart.el
 BuildRequires:	emacs
@@ -40,7 +40,7 @@ capability. Although it is a pager, it can be used as a text-mode WWW browser.
 %package el
 Summary:	Web Browser sources for GNU Emacs
 Group:		Editors
-Url:		http://www.cs.indiana.edu/elisp/w3/
+Url:		https://www.cs.indiana.edu/elisp/w3/
 Requires:	%{name} = %{EVRD}
 
 %description el
